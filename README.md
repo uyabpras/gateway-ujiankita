@@ -23,3 +23,9 @@ ini adalah list service yang digunakan dan harus dijalankan bersamaan agar servi
 4. Soal service (localhost:3012) bertujuan untuk membuat soal ujian, sebelum dikelompokkan kedalam modul service
 5. Task service (localhost:3099) bertujuan untuk penghubung data antar service, jadi data yang telah dibuat atau diedit akan masuk kedalam task
 ````
+
+## Database Diagram
+
+````
+link: https://dbdiagram.io/d/6503656802bd1c4a5e9956ac
+````
