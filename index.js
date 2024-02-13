@@ -7,16 +7,21 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const loadBalancerMiddleware = require('./middlewares/loadBalancer')
+
+const loadBalancerMiddleware = require('./middlewares/loadBalancer');
+const uploadMiddleware = require('./middlewares/mutler-middleware');
+
 const userServiceRoute =  require('./routes/userServiceRoute');
 const soalServiceRoute = require('./routes/soalServiceRoute');
 const modulServiceRoute = require('./routes/modulServiceRoute');
 const taskServiceRoute = require('./routes/taskServiceRoute');
 
 app.use(helmet());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('combined'));
+app.use(uploadMiddleware);
 
 // Gunakan loadBalancerMiddleware untuk semua permintaan di '/api'
 //app.use('/api', loadBalancerMiddleware);
